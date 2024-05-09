@@ -88,7 +88,7 @@ h4 {
 
 h5 {
     font-size: 20px;
-    width: 120px;
+    /* width: 120px; */
     font-weight: var(--tj-fw-light);
     color: var(--tj-grey-3);
 }
@@ -104,6 +104,7 @@ p {
     height: 50px;
     border: 1px solid var(--tj-theme-primary);
     border-radius: 50px;
+    transition: color 0.5s ease;
 }
 
 .btn-outline-download:hover {
@@ -125,6 +126,7 @@ p {
     position: relative;
     text-decoration: none;
     z-index: 1;
+    transition: color 0.5s ease;
 }
 
 .btn-outline-purple:hover {
@@ -363,38 +365,42 @@ p {
 .left-box h5 {
     color: var(--tj-theme-primary);
     font-weight: var(--tj-fw-bold);
+    transition: color 0.3s ease-in-out;
 }
 
-#quality {
+.quality {
     border-bottom: 1px solid var(--tj-theme-primary);
+    background: transparent;
+    transition: background 0.5s ease;
 }
 
 #arrow i {
     font-size: 50px;
     color: var(--tj-theme-primary);
     transform: rotate(45deg);
-    /* Corrected property name and added 'transform' */
+    transition: transform 0.3s linear;
 }
 
-#quality:hover,
-#quality.active {
-    background-image: linear-gradient(to right, var(--tj-theme-primary) 0%, var(--tj-theme-secondary) 50%, var(--tj-theme-secondary) 100%);
-    transition: all 0.3s ease-in-out;
+.quality:hover,
+.quality.active {
+    background: linear-gradient(to right, var(--tj-theme-primary) 0%, var(--tj-theme-secondary) 50%, var(--tj-theme-secondary) 100%);
+    transition: background 0.5s ease;
+    background-size: 200% auto;
+    animation: moveGradientForward 1s ease-in-out forwards;
 }
 
-#quality:hover h5,
-#quality.active h5 {
+.quality:hover h5,
+.quality.active h5 {
     color: var(--tj-white);
-    transition: all 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
 }
 
 
-#quality:hover #arrow i,
-#quality.active #arrow i {
+.quality:hover #arrow i,
+.quality.active #arrow i {
     color: var(--tj-white);
     transform: rotate(-45deg);
-    /* Corrected property name */
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s linear;
 }
 
 .portfolio-section {
@@ -603,11 +609,49 @@ p {
     background: linear-gradient(to right,
             var(--tj-theme-secondary) 0%,
             var(--tj-theme-primary) 100%);
+    background-size: 200% auto;
+    animation: moveGradientForward 1s ease-in-out forwards;
 }
+
+
 
 .letter-box:hover h2 {
     background: var(--tj-white);
     background-clip: text;
+    transition: background 1s ease; 
+}
+
+@keyframes moveGradientForward {
+    0% {
+        background-position: 0% 50%;
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        background-position: 51% 100%;
+    }
+}
+
+@keyframes moveGradientBackward {
+    0% {
+        background-position: 51% 100%;
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        background-position: 0% 50%;
+        opacity: 1;
+    }
+}
+
+/* Apply the reverse animation on unhover */
+.letter-box:not(:hover) {
+    animation: moveGradientBackward 1s ease-in-out forwards;
 }
 
 #experience h1,
@@ -931,4 +975,260 @@ tj-footer-area {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Adjust styles for tablets in landscape mode */
+    #greeting h1 {
+        font-size: 70px;
+    }
+    .btn-outline-download {
+        height: auto;
+    }
+
+    .portfolio-box {
+        height: 673px !important;
+    }
+
+    .mobile-app,
+    .app {
+        top: 400px !important;
+    }
+
+    #greeting {
+        flex-direction: column;
+    }
+
+    #downloadCV {
+        flex-direction: column;
+    }
+    .btn-outline-download {
+        margin-bottom: 20px;
+    }
+
+    #header img {
+        margin-top: 25px;
+        width: 380px;
+        height: 380px;
+    }
+}
+
+/* Tablets (portrait) */
+@media screen and (max-width: 767px) {
+    /* Adjust styles for tablets in portrait mode */
+    h1 {
+        font-size: 70px;
+    }
+    
+    h2 {
+        font-size: 45px;
+    }
+    
+    h3 {
+        font-size: 40px;
+    }
+    
+    h4 {
+        font-size: 30px;
+    }
+    
+    h5 {
+        font-size: 20px;
+    }
+    
+    p {
+        font-size: 20px;
+    }
+
+    #specification div{
+        justify-content: center;
+    }
+    
+    .branding,
+    .uxui,
+    .app,
+    .mobile-app {
+        left:  2% !important;
+        width: 100% !important;
+    }
+
+    .uxui {
+        top: 36% !important;
+    }
+    .mobile-app {
+        top: 68% !important;
+    }
+    .app {
+        top: 99% !important;
+    }
+    .intro_text svg {
+        display: none;
+    }
+
+    #image {
+        margin-top: 10%;
+    }
+
+    #experience_education {
+        margin-top: 165px;
+    }
+
+    .left-box h4 {
+        margin-left: 20px;
+    }
+
+    #downloadCV {
+        flex-direction: column;
+    }
+    .btn-outline-download {
+        margin-bottom: 20px;
+    }
+
+    #header img {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+/* Smartphones */
+@media screen and (max-width: 480px) {
+    /* Adjust styles for smartphones */
+    h1 {
+        font-size: 60px;
+    }
+    
+    h2 {
+        font-size: 35px;
+    }
+    
+    h3 {
+        font-size: 30px;
+    }
+    
+    h4 {
+        font-size: 20px;
+    }
+    
+    h5 {
+        font-size: 10px;
+    }
+    
+    p {
+        font-size: 10px;
+    }
+    .left-box{ 
+        flex-direction: column;
+    }
+
+    #header img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .branding,
+    .uxui,
+    .app,
+    .mobile-app {
+        left:  2% !important;
+        width: 100% !important;
+    }
+
+    .uxui {
+        display: none;
+    }
+    .mobile-app {
+        top: 38% !important;
+    }
+    .app {
+        top: 70% !important;
+    }
+
+    #experience_education {
+        margin-top: 10px;
+    }
+
+    .container-fluid {
+        padding: 5px 6px;
+    }
+    .quality {
+        margin: 0;
+    }
+    .skills-section {
+        padding-top: 10px;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+    
+    h3 {
+        font-size: 30px;
+    }
+    
+    h4 {
+        font-size: 20px;
+    }
+    
+    h5 {
+        font-size: 10px;
+    }
+    
+    p,a {
+        font-size: 10px !important;
+    }
+
+    #header #image::before {
+        width: 100px;
+        height: 100px;
+    }
+
+    #service {
+        margin-left: 0;
+    }
+
+    .branding,
+    .uxui,
+    .app,
+    .mobile-app {
+        left:  -15% !important;
+        width: 100% !important;
+    }
+
+    .uxui {
+        top: 36% !important;
+    }
+    .mobile-app {
+        top: 68% !important;
+    }
+    .app {
+        top: 99% !important;
+    }
+
+    .portfolio-box {
+        display: none;
+    }
+
+    .intro_text svg {
+        display: none;
+    } 
+    .quality #arrow i {
+        font-size: 30px;
+        margin-left: 8px;
+    }
+    #experience h1, #education h1 {
+        font-size: 30px;
+    }
+
+    .btn-outline-download {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
 }
