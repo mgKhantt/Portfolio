@@ -179,21 +179,6 @@ p {
     transform: scaleX(1);
 }
 
-/* .tj-btn-primary {
-    font-size: var(--tj-fz-btn);
-    text-transform: capitalize;
-    animation: originalButtonAnimation 1s ease-in-out;
-    background-image: linear-gradient(to right, var(--tj-theme-primary) 0%, var(--tj-theme-secondary) 50%, var(--tj-theme-secondary) 100%);
-    background-size: 200%;
-    color: var(--tj-white);
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    animation-fill-mode: forwards;
-    width: 100%;
-    width: 110px;
-} */
-
 .tj-btn-primary:hover {
     animation-name: buttonAnimation;
     animation-duration: 1s;
@@ -1232,3 +1217,15 @@ tj-footer-area {
         margin-bottom: 15px;
     }
 }
+
+.slideObject, .navObject {
+    visibility: hidden;
+}
+
+.animate__bounceInLeft,
+.animate__bounceOutLeft,
+.animate__bounceInRight,
+.animate__bounceOutRight {
+    visibility: visible !important;
+}
+  
