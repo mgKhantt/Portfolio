@@ -1217,15 +1217,3 @@ tj-footer-area {
         margin-bottom: 15px;
     }
 }
-
-.slideObject, .navObject {
-    visibility: hidden;
-}
-
-.animate__bounceInLeft,
-.animate__bounceOutLeft,
-.animate__bounceInRight,
-.animate__bounceOutRight {
-    visibility: visible !important;
-}
-  
